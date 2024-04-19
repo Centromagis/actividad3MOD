@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title> Actividad 3</title>
+
+<script src="site_libs/header-attrs-2.25/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Modelos Estadísticos para la toma de decisiones</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore"><span style="color:#034a94">
+<strong>Actividad 3</strong></span></h1>
+
+</div>
+
+
+<p><br/><br/></p>
+<div id="problema-rotación-de-cargo" class="section level1">
+<h1><span style="color:#034a94"><strong>Problema: Rotación de
+cargo</strong></span></h1>
+<p><br/> <br/></p>
+<center>
+<img src="img/empleados.png" width="80%" style="display: block; margin: auto;" />
+<sub>Tomada de: pixabay.com </sub>
+</center>
+<p><br/><br/></p>
+<p>En una organización, se busca comprender y prever los factores que
+influyen en la <strong>rotación de empleados</strong> entre distintos
+cargos. La empresa ha recopilado datos históricos sobre el empleo de sus
+trabajadores, incluyendo variables como la antigüedad en el cargo
+actual, el nivel de satisfacción laboral, el salario actual, edad y
+otros factores relevantes. La gerencia planea desarrollar un modelo de
+regresión logística que permita estimar la probabilidad de que un
+empleado cambie de cargo en el próximo período y determinar cuales
+factores indicen en mayor proporción a estos cambios.</p>
+<p><br/></p>
+<p>Con esta información, la empresa podrá tomar medidas proactivas para
+retener a su talento clave, identificar áreas de mejora en la gestión de
+recursos humanos y fomentar un ambiente laboral más estable y tranquilo.
+La predicción de la probabilidad de rotación de empleados ayudará a la
+empresa a tomar decisiones estratégicas informadas y a mantener un
+equipo de trabajo comprometido y satisfecho en sus roles actuales.</p>
+<p><br/></p>
+<p>A continuación se describen los pasos que la gerencia ha propuesto
+para el análisis:</p>
+<p><br/><br/></p>
+<div id="selección-de-variables" class="section level2">
+<h2><span style="color:#034a94"> <strong>1. Selección de
+variables</strong></span></h2>
+<p>Seleccione 3 <strong>variables categóricas</strong> (distintas de
+rotación) y 3 <strong>variables cuantitativas</strong>, que se
+consideren estén relacionadas con la rotación.</p>
+<p><br/></p>
+<div id="nota" class="section level3 content-box-gray">
+<h3><span style="color:#686868"> <strong>Nota</strong></span>:</h3>
+<p>Debes justificar porque estas variables están relacionadas y que tipo
+de relación se espera entre ellas (Hipótesis).</p>
+</div>
+<p><br/><br/></p>
+<div id="ejemplo" class="section level3">
+<h3><span style="color:#FF7F00"> <strong>Ejemplo</strong></span>:</h3>
+<p>Se espera que las <strong>horas extra</strong> se relacionen con la
+<strong>rotación</strong> ya que las personas podrían desgastarse mas al
+trabajar horas extra y descuidan aspectos personales. La hipótesis es
+que las personas que trabajan horas extra tienen mayor posibilidad de
+rotar que las que no trabajan extra. (serian 6, una por variable).</p>
+<p><br/><br/><br/></p>
+</div>
+</div>
+<div id="análisis-univariado" class="section level2">
+<h2><span style="color:#034a94"> <strong>2. Análisis
+univariado</strong></h2>
+<p>Realiza un análisis univariado (caracterización) de la información
+contenida en la base de datos <code>rotacion</code>.</p>
+<p><br/></p>
+<div id="nota-1" class="section level3 content-box-gray">
+<h3><span style="color:#686868"> <strong>Nota</strong></span>:</h3>
+<p>Los indicadores o gráficos se usan dependiendo del tipo de variable
+(cuantitativas o cualitativas). Incluir interpretaciones de la variable
+<code>rotacion</code>.</p>
+</div>
+<p><br/><br/><br/></p>
+</div>
+<div id="análisis-bivariado" class="section level2">
+<h2><span style="color:#034a94"> <strong>3. Análisis
+bivariado</strong></h2>
+<p>Realiza un análisis de bivariado en donde la variable respuesta sea
+<code>rotacion</code> codificada de la siguiente manera (<span
+class="math inline">\(y = 1\)</span> es si rotación, <span
+class="math inline">\(y = 0\)</span> es no rotación). Con base en estos
+resultados identifique cuales son las variables determinantes de la
+rotación e interpretar el signo del coeficiente estimado. Compare estos
+resultados con la hipotesis planteada en el punto 2.</p>
+<p><br/><br/><br/></p>
+</div>
+<div id="estimación-del-modelo" class="section level2">
+<h2><span style="color:#034a94"> <strong>4. Estimación del
+modelo</strong></h2>
+<p>Realiza la estimación de un <strong>modelo de regresión
+logístico</strong> en el cual la variable respuesta es
+<code>rotacion</code> (<span class="math inline">\(y=1\)</span> es si
+rotación, <span class="math inline">\(y=0\)</span> es no rotación) y las
+covariables las 6 seleccionadas en el punto 1. Interprete los
+coeficientes del modelo y la significancia de los parámetros.</p>
+<p><br/><br/><br/></p>
+</div>
+<div id="evaluación" class="section level2">
+<h2><span style="color:#034a94"> <strong>5. Evaluación</strong></h2>
+<p>Evaluar el poder predictivo del modelo con base en la curva
+<strong>ROC</strong> y el <strong>AUC</strong>.</p>
+<p><br/><br/><br/></p>
+</div>
+<div id="predicciones" class="section level2">
+<h2><span style="color:#034a94"> <strong>6. Predicciones</strong></h2>
+<p>Realiza una predicción la probabilidad de que un individuo
+(hipotético) rote y defina un corte para decidir si se debe intervenir a
+este empleado o no (posible estrategia para motivar al empleado).</p>
+<p><br/><br/><br/></p>
+</div>
+<div id="conclusiones" class="section level2">
+<h2><span style="color:#034a94"> <strong>7. Conclusiones</strong></h2>
+<p>En las conclusiones adicione una discución sobre cuál sería la
+estrategia para disminuir la rotación en la empresa (con base en las
+variables que resultaron significativas en el punto 3).</p>
+<p><br/></p>
+<div id="ejemplo-1" class="section level3">
+<h3><span style="color:#FF7F00"> <strong>Ejemplo</strong></span>:</h3>
+<p>Mejorar el ambiente laboral, los incentivos económicos, distribuir la
+carga de horas extra (menos turnos y mas personal).</p>
+<p><br/><br/><br/></p>
+</div>
+</div>
+<div id="entregable-1" class="section level2">
+<h2><span style="color:#034a94"><strong>Entregable
+1</strong></span></h2>
+<p>Informe en formato pdf, con los puntos solicidados</p>
+<p><br/><br/><br/></p>
+</div>
+<div id="carga-de-datos" class="section level2">
+<h2><span style="color:#FF7F00"><strong>Carga de datos</strong>
+</span></h2>
+<pre class="r"><code># install.packages(&quot;devtools&quot;) # solo la primera vez
+# devtools::install_github(&quot;dgonxalex80/paqueteMODELOS&quot;, force =TRUE)
+library(paqueteMODELOS)
+data(&quot;rotacion&quot;)</code></pre>
+<p><br/><br/></p>
+</div>
+<div id="data" class="section level2">
+<h2><span style="color:#FF7F00"> <strong>Data</strong></span></h2>
+<pre class="r"><code>library(paqueteMODELOS)
+library(dplyr)
+data(&quot;rotacion&quot;)
+glimpse(rotacion)</code></pre>
+<pre><code>Rows: 1,470
+Columns: 24
+$ Rotación                    &lt;chr&gt; &quot;Si&quot;, &quot;No&quot;, &quot;Si&quot;, &quot;No&quot;, &quot;No&quot;, &quot;No&quot;, &quot;No&quot;, …
+$ Edad                        &lt;dbl&gt; 41, 49, 37, 33, 27, 32, 59, 30, 38, 36, 35…
+$ `Viaje de Negocios`         &lt;chr&gt; &quot;Raramente&quot;, &quot;Frecuentemente&quot;, &quot;Raramente&quot;…
+$ Departamento                &lt;chr&gt; &quot;Ventas&quot;, &quot;IyD&quot;, &quot;IyD&quot;, &quot;IyD&quot;, &quot;IyD&quot;, &quot;IyD…
+$ Distancia_Casa              &lt;dbl&gt; 1, 8, 2, 3, 2, 2, 3, 24, 23, 27, 16, 15, 2…
+$ Educación                   &lt;dbl&gt; 2, 1, 2, 4, 1, 2, 3, 1, 3, 3, 3, 2, 1, 2, …
+$ Campo_Educación             &lt;chr&gt; &quot;Ciencias&quot;, &quot;Ciencias&quot;, &quot;Otra&quot;, &quot;Ciencias&quot;…
+$ Satisfacción_Ambiental      &lt;dbl&gt; 2, 3, 4, 4, 1, 4, 3, 4, 4, 3, 1, 4, 1, 2, …
+$ Genero                      &lt;chr&gt; &quot;F&quot;, &quot;M&quot;, &quot;M&quot;, &quot;F&quot;, &quot;M&quot;, &quot;M&quot;, &quot;F&quot;, &quot;M&quot;, &quot;M…
+$ Cargo                       &lt;chr&gt; &quot;Ejecutivo_Ventas&quot;, &quot;Investigador_Cientifi…
+$ Satisfación_Laboral         &lt;dbl&gt; 4, 2, 3, 3, 2, 4, 1, 3, 3, 3, 2, 3, 3, 4, …
+$ Estado_Civil                &lt;chr&gt; &quot;Soltero&quot;, &quot;Casado&quot;, &quot;Soltero&quot;, &quot;Casado&quot;, …
+$ Ingreso_Mensual             &lt;dbl&gt; 5993, 5130, 2090, 2909, 3468, 3068, 2670, …
+$ Trabajos_Anteriores         &lt;dbl&gt; 8, 1, 6, 1, 9, 0, 4, 1, 0, 6, 0, 0, 1, 0, …
+$ Horas_Extra                 &lt;chr&gt; &quot;Si&quot;, &quot;No&quot;, &quot;Si&quot;, &quot;Si&quot;, &quot;No&quot;, &quot;No&quot;, &quot;Si&quot;, …
+$ Porcentaje_aumento_salarial &lt;dbl&gt; 11, 23, 15, 11, 12, 13, 20, 22, 21, 13, 13…
+$ Rendimiento_Laboral         &lt;dbl&gt; 3, 4, 3, 3, 3, 3, 4, 4, 4, 3, 3, 3, 3, 3, …
+$ Años_Experiencia            &lt;dbl&gt; 8, 10, 7, 8, 6, 8, 12, 1, 10, 17, 6, 10, 5…
+$ Capacitaciones              &lt;dbl&gt; 0, 3, 3, 3, 3, 2, 3, 2, 2, 3, 5, 3, 1, 2, …
+$ Equilibrio_Trabajo_Vida     &lt;dbl&gt; 1, 3, 3, 3, 3, 2, 2, 3, 3, 2, 3, 3, 2, 3, …
+$ Antigüedad                  &lt;dbl&gt; 6, 10, 0, 8, 2, 7, 1, 1, 9, 7, 5, 9, 5, 2,…
+$ Antigüedad_Cargo            &lt;dbl&gt; 4, 7, 0, 7, 2, 7, 0, 0, 7, 7, 4, 5, 2, 2, …
+$ Años_ultima_promoción       &lt;dbl&gt; 0, 1, 0, 3, 2, 3, 0, 0, 1, 7, 0, 0, 4, 1, …
+$ Años_acargo_con_mismo_jefe  &lt;dbl&gt; 5, 7, 0, 0, 2, 6, 0, 0, 8, 7, 3, 8, 3, 2, …</code></pre>
+<p><br/><br/></p>
+<p><em>Adaptado de Weiers, Ronald M, Introducción a la estadística para
+Negocios., 2006.</em></p>
+</div>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
