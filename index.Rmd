@@ -133,7 +133,7 @@ Informe en formato pdf, con los puntos solicidados
 
 ```{r, eval=FALSE}
 # install.packages("devtools") # solo la primera vez
-# devtools::install_github("dgonxalex80/paqueteMODELOS", force =TRUE)
+# devtools::install_github("centromagis/paqueteMODELOS", force =TRUE)
 library(paqueteMODELOS)
 data("rotacion")
 ```
