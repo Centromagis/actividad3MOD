@@ -86,7 +86,7 @@ Los indicadores o gráficos se usan dependiendo del tipo de variable (cuantitati
 
 ## <span style="color:#034a94"> **3. Análisis bivariado** 
 
-Realiza un análisis de bivariado en donde la variable respuesta sea `rotacion` codificada de la siguiente manera ($y = 1$ es si rotación, $y = 0$ es no rotación). Con base en estos resultados identifique cuales son las variables determinantes de la rotación e interpretar el signo del coeficiente estimado. Compare estos resultados con la hipotesis planteada en el punto 2.
+Realiza un análisis de bivariado en donde la variable respuesta sea `rotacion` codificada de la siguiente manera ($y = 1$ es si rotación, $y = 0$ es no rotación). Con base en estos resultados identifique cuales son las variables determinantes de la rotación e interpretar el signo del coeficiente estimado. Compare estos resultados con la hipótesis planteada en el punto 2.
 
 <br/><br/><br/>
 
@@ -111,7 +111,7 @@ Realiza una predicción la probabilidad de que un individuo (hipotético) rote y
 ## <span style="color:#034a94"> **7. Conclusiones** 
 
 
-En las conclusiones adicione una discución sobre cuál sería la estrategia para disminuir la rotación en la empresa (con base en las variables que resultaron significativas en el punto 3). 
+En las conclusiones adicione una discusión sobre cuál sería la estrategia para disminuir la rotación en la empresa (con base en las variables que resultaron significativas en el punto 3). 
 
 <br/>
 
@@ -132,8 +132,8 @@ Informe en formato pdf, con los puntos solicidados
 ## <span style="color:#FF7F00">**Carga de datos** </span>
 
 ```{r, eval=FALSE}
-# install.packages("devtools") # solo la primera vez
-# devtools::install_github("centromagis/paqueteMODELOS", force =TRUE)
+ install.packages("devtools") # solo la primera vez
+ devtools::install_github("centromagis/paqueteMODELOS", force =TRUE)
 library(paqueteMODELOS)
 data("rotacion")
 ```
